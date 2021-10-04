@@ -5,6 +5,7 @@ This cdoe is used to answer the health survey automatically.
 There are two ways to use it.
 1. Run locally
 2. Run on heroku using heroku scheduler
+
 I recommend you to use the first one.
 
 ### How to run locally
@@ -34,7 +35,7 @@ I recommend you to use the first one.
 6. `git push heroku master`
 7. `heroku addons:add scheduler:standard` (You may need to register your credit card.)
 8. Set up heroku scheduler from the heroku scheduler page.
-9. Add buildpacks
+9. Add buildpacks(after add buildpacks, you need to redeploy the app.)
     - heroku/python
     - https://github.com/heroku/heroku-buildpack-google-chrome
     - https://github.com/heroku/heroku-buildpack-chromedriver
@@ -43,9 +44,10 @@ I recommend you to use the first one.
         - HEALTH_SERVEY_URL="https://..."
         - EMAIL="your email address"
         - PASSWORD="your password"
+        - CHROME_DRIVER_PATH="/app/.chromedriver/bin/chromedriver"
     - optional
-        - CHROME_DRIVER_PATH="path to chromedriver"
         - ACTIVITY_NAME="activity name"
         - IS_GET_EMAIL_RECEIPT="true or false"
         - IS_DETERMINATE_BY_BIZDAY="true or false"
         - IS_ATTEND_SCHOOL="true or false"
+        - LINE_NOTIFY_TOKEN="your line notify token"
