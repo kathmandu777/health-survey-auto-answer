@@ -15,7 +15,7 @@ import requests
 
 
 class HealthSurveyAutoAnswerBot:
-    SLEEP_TIME = 5
+    SLEEP_TIME = 10
     EMAIL_INPUT_BOX_ID = "i0116"
     EMAIL_SUBMIT_BUTTON_ID = "idSIButton9"
     PASSWORD_INPUT_BOX_ID = "i0118"
