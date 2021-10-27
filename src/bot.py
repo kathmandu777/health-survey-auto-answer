@@ -144,6 +144,7 @@ class HealthSurveyAutoAnswerBot:
             else DEFAULT_IS_ATTEND_SCHOOL
         )
         try:
+            a
             self.answer_health_survey(
                 is_get_email_receipt=is_get_email_receipt,
                 is_determinate_by_bizday=is_determinate_by_bizday,
@@ -151,6 +152,10 @@ class HealthSurveyAutoAnswerBot:
             )
         except Exception as e:
             self.line_notify(e)
+            self.line_notify(
+                "The above error occurred and could not be answered normally. Please use the following link to answer it yourself. "
+                + str(os.environ.get("HEALTH_SERVEY_URL"))
+            )
             print(e)
 
     def line_notify(self, message: str) -> None:
