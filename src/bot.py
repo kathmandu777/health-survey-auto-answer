@@ -144,7 +144,6 @@ class HealthSurveyAutoAnswerBot:
             else DEFAULT_IS_ATTEND_SCHOOL
         )
         try:
-            a
             self.answer_health_survey(
                 is_get_email_receipt=is_get_email_receipt,
                 is_determinate_by_bizday=is_determinate_by_bizday,
