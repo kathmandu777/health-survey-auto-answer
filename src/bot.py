@@ -41,6 +41,7 @@ class HealthSurveyAutoAnswerBot:
         self.options.add_argument('--proxy-server="direct://"')
         self.options.add_argument("--proxy-bypass-list=*")
         self.options.add_argument("--start-maximized")
+        self.options.add_argument("--disable-application-cache")
         self.browser = webdriver.Chrome(
             options=self.options,
         )
