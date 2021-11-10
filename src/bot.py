@@ -12,10 +12,11 @@ from .constants import (
     MIN_BODY_TEMPERATURE,
 )
 import requests
+import sys
 
 
 class HealthSurveyAutoAnswerBot:
-    SLEEP_TIME = 10
+    SLEEP_TIME = 5
     EMAIL_INPUT_BOX_ID = "i0116"
     EMAIL_SUBMIT_BUTTON_ID = "idSIButton9"
     PASSWORD_INPUT_BOX_ID = "i0118"
@@ -151,12 +152,13 @@ class HealthSurveyAutoAnswerBot:
                 is_attend_school=is_attend_school,
             )
         except Exception as e:
-            self.line_notify(e)
+            _, value, _ = sys.exc_info()
+            self.line_notify(str(value))
             self.line_notify(
                 "The above error occurred and could not be answered normally. Please use the following link to answer it yourself. "
                 + str(os.environ.get("HEALTH_SERVEY_URL"))
             )
-            print(e)
+            print(value)
 
     def line_notify(self, message: str) -> None:
         line_notify_token = os.environ.get("LINE_NOTIFY_TOKEN", "")
